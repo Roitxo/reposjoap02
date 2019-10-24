@@ -1,0 +1,14 @@
+input{
+  margin: 2% !important;
+}
+form, table {
+  background-color: #f3f3f3;
+  padding: 2.5%;
+  margin: 2%;
+}
+.nomargin{
+  margin: 0 !important;
+}
+.card{
+  margin: 3% 2% 2% 9%!important;
+}
