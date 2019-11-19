@@ -1,5 +1,5 @@
 var account = 'stsjo17';
-var sas = '?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-10-30T00:11:51Z&st=2019-10-29T16:11:51Z&spr=https&sig=3VBUixxORTxDOQXYmPiVNJ0S%2F1UkHnQOdyNe2oXrp8s%3D';
+var sas = '?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-06-06T21:52:40Z&st=2019-11-19T14:52:40Z&spr=https&sig=Udb%2B589zvrDzocXpSQC5jA8cxhcDoOEdW2XEIiuA1JU%3D';
 var fileShare = 'images';
 var currentPath = '';
 var fileUri = '';
