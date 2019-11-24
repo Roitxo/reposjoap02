@@ -75,16 +75,19 @@ function createFileFromStream(checkMD5) {
       const newMainTitle = document.getElementById("title");
       const newMainSubtitle = document.getElementById("subtitle");
       const newMainDescription = document.getElementById("description");
+      const newMainReference = document.getElementById("ref");
       console.log("client.user id = ", client.auth.user.id)
       db.collection("collection01")
         .insertOne({
           owner_id: client.auth.user.id,
           title: newMainTitle.value,
           subtitle: newMainSubtitle.value,
+          reference: newMainReference.value,
           description: newMainDescription.value,
           image: file.name
         })
         .then(displayMains);
+      document.getElementById('add-new').style.display='block';
       newMainTitle.value = "";
       newMainSubtitle.value = "";
       newMainDescription.value = "";
@@ -189,12 +192,23 @@ function displayMains() {
           <td>${doc.title}</td>
           <td>${doc.subtitle}</td>
           <td>${doc.description}</td>
-          <td><button type="button" class="btn btn-danger" onclick="deleteOne('${doc._id}')">X</button></td>
+          <td>
+            <button type="button" class="btn btn-danger" onclick="deleteOne('${doc._id}')"><i class="fas fa-trash-alt"></i></button>
+            <a class="btn btn-primary" href="${doc.reference}" target="_blank"><i class="fas fa-external-link-square-alt"></i></a>
+          </td>
         </tr>
         `);
       document.getElementById("tbody").innerHTML = html;
       entradas = docs;
     });
+
+}
+function togglModal(val){
+  if (val == "mostrar") {
+    document.getElementById('add-new').style.display='block';
+  } else if (val == "ocultar") {
+    document.getElementById('add-new').style.display='none';
+  }
 
 }
 
@@ -220,15 +234,18 @@ function addMain() {
   const newMainTitle = document.getElementById("title");
   const newMainSubtitle = document.getElementById("subtitle");
   const newMainDescription = document.getElementById("description");
+  const newMainReference = document.getElementById("ref");
   //console.log("client.user id = ", client.auth.user.id);
   db.collection("collection01")
     .insertOne({
       owner_id: client.auth.user.id,
       title: newMainTitle.value,
       subtitle: newMainSubtitle.value,
+      reference: newMainReference.value,
       description: newMainDescription.value
     })
     .then(displayMains);
+  document.getElementById('add-new').style.display='block';
   newMainTitle.value = "";
   newMainSubtitle.value = "";
   newMainDescription.value = "";

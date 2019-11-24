@@ -28,7 +28,7 @@ function displayMains() {
             <h5 class="card-title">${doc.title}</h5>
             <h6 class="card-title">${doc.subtitle}</h6>
             <p class="card-text">${doc.description}</p>
-            <a href="#" class="btn btn-primary">Ver</a>
+            <a class="btn btn-primary" href="${doc.reference}" target="_blank"><i class="fas fa-external-link-square-alt"></i></a>
           </div>
         </div>
         `);

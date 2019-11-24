@@ -12,3 +12,6 @@ form, table {
 .card{
   margin: 3% 2% 2% 9%!important;
 }
+#add-new{
+  display: none;
+}

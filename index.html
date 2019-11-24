@@ -5,6 +5,7 @@
   <title>Frontend</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/master.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4/stitch.js"></script>
   <script src="js/frontend.js" charset="utf-8"></script>
 </head>
@@ -21,20 +22,13 @@
   </div>
   <ul class="nomargin navbar-dark bg-dark nav justify-content-center">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
+      <button id="refresh-button" type="button" onclick="displayMains()" class="btn btn-primary" name="button"><i class="fas fa-sync-alt"></i></button>
     </li>
   </ul>
-  <div class="container" id="datos">
+  <div class="container">
+    <div id="datos">
 
+    </div>
   </div>
 </body>
 
