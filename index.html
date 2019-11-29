@@ -1,36 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-  <title>Frontend</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/master.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4/stitch.js"></script>
-  <script src="js/frontend.js" charset="utf-8"></script>
-  <meta name="charset" content="utf-8">
+  <script src="js/azure.js" charset="utf-8"></script>
+  <script src="js/frontend.js"></script>
+  <title>CiberBullying</title>
 </head>
 
 <body>
-  <div class="jumbotron nomargin">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+  <div id="arrow">
+    <a class="naranja" href="#top"><i class="fa-3x fas fa-arrow-up"></i></a>
   </div>
-  <ul class="nomargin navbar-dark bg-dark nav justify-content-center">
-    <li class="nav-item">
-      <button id="refresh-button" type="button" onclick="displayMains()" class="btn btn-primary" name="button"><i class="fas fa-sync-alt"></i></button>
-    </li>
-  </ul>
-  <div class="container">
-    <div id="datos">
-
+  <header id="navbar">
+    <h1 id="logo">Ciber<span class="naranja">Bullying</span></h1>
+    <nav id="desktop-nav">
+      <a class="nav-link" href="#quienes somos">¿QUIÉNES SOMOS?</a>
+      <a class="nav-link" href="#ciberbullying">CIBERBULLYING</a>
+      <a class="nav-link" href="#noticias">NOTICIAS</a>
+      <a class="nav-link" href="#">FORO</a>
+    </nav>
+    <div class="offcanvas">
+      <button class="btn-naranja" onclick="showOffCanvas()" type="button" name="button"><i class="fas fa-bars fa-2x"></i></button>
     </div>
+  </header>
+  <nav id="mobile-nav">
+    <h1 id="logo">Ciber<span class="naranja">Bullying</span></h1>
+    <a class="nav-link" href="#quienes somos">¿QUIÉNES SOMOS?</a>
+    <a class="nav-link" href="#ciberbullying">CIBERBULLYING</a>
+    <a class="nav-link" href="#noticias">NOTICIAS</a>
+    <a class="nav-link" href="#">FORO</a>
+    <button onclick="hideOffCanvas()" class="btn-naranja" type="button" name="button"><i class="fas fa-times fa-3x"></i></button>
+  </nav>
+  <div id="banner">
+    <h1>Ciber<span class="naranja">Bullying</span></h1>
+    <h2>Proyecto dedicado a informar y a ayudar a las víctimas del ciberacoso</h2>
+    <h3>EASDIB + SJO</h3>
+    <a id="leermas" href="#footer1"><span>Leer más</span></a>
   </div>
+  <main>
+    <section>
+      <h2 id="quienessomos">¿Quiénes<span class="naranja">&nbsp;somos</span>?</h2>
+      <div id="logos1">
+        <article id="informar">
+          <img class="icon" src="img/conversacion.png">
+          <p id="textoqs">Informar</p>
+        </article>
+        <article id="ayudar">
+          <img class="icon" src="img/maximo-de-cinco.png">
+          <p id="textoqs">Ayudar</p>
+        </article>
+        <article id="proteger">
+          <img class="icon" src="img/proteger.png">
+          <p id="textoqs">Proteger</p>
+        </article>
+      </div>
+      <artcile>
+        <p id="texto1"><span class="firstcharacter">E</span>ste proyecto nace en 2019 con la misión informar sobre el acoso a través de internet, redes sociales y aplicaciones de mensajería. El objetivo es claro; promocionar el uso seguro y saludable
+          de Internet, así como el fomento
+          de la ciudadanía digital responsable en la infancia y la adolescencia. A tal fin desarrollamos este proyecto para la capacitación de niños, niñas y adolescentes de forma que puedan desenvolverse de manera autónoma en Internet, siendo el
+          objetivo final que desarrollen las habilidades y competencias digitales que les permitan participar de forma activa, positiva y saludable en la Red.
+          Ciberbullying, sexting, sextorsión, grooming, seguridad y privacidad son algunas de las temáticas que abordamos de forma preferente.<br><br>
+          <span class="firstcharacter">E</span>n CiberBullying queremos concienciar y visibilizar el acoso por internet de modo que facilite la identificación del problema y redirigir a las organizaciones profesionales especializadas con el
+          ciberacoso.<br><br>
+          Nuestro foro especializado permite a cualquier usuario acceder a testimonios y experiencias reales con el objetivo de compartir situaciones personales y conocer más personas con casos similares.
+        </p>
+      </artcile>
+    </section>
+
+    <section id="ciberbullying">
+      <artcile>
+        <div id="cajamenu2">
+          <img class="icon" src="img/info.png">
+          <h1 id="ciberbullying1">¿Qué es el CiberBullying?</h1>
+          <p class="subh">Explicamos qué es el ciberacoso; conductas, patrones, ejemplos, cómo evitarlo, cómo actuar, etc.</p>
+        </div>
+        <div id="texto2">
+          El ciberbullying o ciberacoso es el uso de medios digitales (smartphones, Internet o videojuegos online, por ejemplo) con la intención de acosar psicológicamente a terceros. Sin embargo, para tratarse de ciberbullying, hay que tener en
+          cuenta que:<br>
+          <ul>
+            <li>El acoso o bullying se da entre iguales: jóvenes, niños, adolescentes; el agresor y la víctima del acoso tendrán la misma edad y compartirán un contexto social.</li>
+            <li>No se trata de acoso o abuso sexual, ni intervendrán en el ciberacoso personas adultas, pues, en este caso, estaríamos hablando de otro tipo de delito.</li>
+          </ul>
+
+          <button onclick="togglReadMore()" id="readmore" class="naranja">Seguir leyendo...</button><br><br>
+          <div id="oculto" class="hidden">
+            La psicología entiende al acosador como un depredador moral cuyo objetivo nace de la presencia de profundos sentimientos de inadecuación personal y profesional en el inconsciente —lo que solemos conocer como complejo de inferioridad—. En
+            lugar de aumentar su propia autoestima, el acosador reacciona ante cualquier persona o situación que pueda recordarle que él está mal, ridiculizando, humillando o criticando a sus víctimas.
+            <ol>
+              <li>El anonimato, o posible anonimato, ofrece una situación de ventaja estratégica al acosador y una mayor indefensión a las víctimas; sobre todo cuando se dan graves casos de chantaje o sexting.</li>
+              <li>La falta de una percepción directa del daño genera puede generar un ciberacoso mucho más agresivo y violento psicológicamente, en el que, además, la empatía del acosador se vuelve casi inexistente por la invisibilización de la otra
+                persona en Internet.</li>
+              <li>La posible adopción de roles imaginarios en la red también puede fortalecer el poder del acosador y medrar la autoestima de la víctima.</li>
+            </ol>
+            <h3>Ejemplos de ciberbullying:</h3>
+            <ol>
+              <li>Crear perfiles falsos para ridiculizar, acosar o confesar en primera persona experiencias personales verdaderas o falsas de la víctima, así como acontecimientos personales, demandas de contacto sexual, o similares.</li>
+              <li>Hackear o robar la contraseña de correo electrónico de la víctima, leer sus correos violando su intimidad y utilizar el acceso al mismo para usurpar su identidad o utilizar información confidencial.</li>
+              <li>Propagar rumores en foros o redes sociales; provocar a la víctima para que esta reaccione de forma violenta y denunciarla ante los responsables de un foro, un chat o un videojuego.</li>
+              <li>Enviar mensajes amenazantes por correo, WhatsApp o redes sociales aprovechando el anonimato, agobiando y acosando a la víctima.</li>
+              <li>Subir a Internet fotos reales o fotomontajes para avergonzar públicamente o perjudicar a la víctima.</li>
+            </ol>
+            <h3>Cómo actuar:</h3>
+            <ul>
+              <li>
+                <span class="item-of-list">Pide ayuda.</span>
+                Si eres menor recurre a tu padre o tu madre o, en su defecto, a una persona adulta de confianza. Asegúrate de que esa persona conoce y entiende estas pautas para que ambos podáis remar en
+                el mismo sentido y para que, en su
+                ánimo de protección, no haga cosas que acaben siendo perjudiciales.
+              </li>
+              <li>
+                <span class="item-of-list">Nunca respondas a las provocaciones.</span>
+                Hacerlo no te ayuda en nada y, sin embargo, es un estímulo y una ventaja para quienes te acosan. Mantén la calma y no actúes de forma exagerada o impulsiva en ningún caso.
+                Puede que ni las circunstancias ni las personas que parecen implicadas sean como aparentan. Mantén un margen para la duda razonable porque actuar sobre bases equivocadas puede agravar los problemas y crear otros
+                nuevos.
+              </li>
+              <li>
+                <span class="item-of-list">No hagas presunciones.</span>
+                Hacerlo no te ayuda en nada y, sin embargo, es un estímulo y una ventaja para quienes te acosan. Mantén la calma y no actúes de forma exagerada o impulsiva en ningún caso.
+                Puede que ni las circunstancias ni las personas que parecen implicadas sean como aparentan. Mantén un margen para la duda razonable porque actuar sobre bases equivocadas puede agravar los problemas y crear otros
+                nuevos.
+              </li>
+              <li>
+                Trata de evitar aquellos lugares en los que eres asediado en la medida de lo posible hasta que la situación se vaya clarificando. Si se trata de redes sociales o comunidades online no te será difícil. Si el acoso llega por el teléfono
+                móvil, no descartes cambiar de número.
+                Cuanto más se sepa de ti, más vulnerable eres y más variado e intenso es el daño que pueden causarte.¿Imaginas una mentira ridiculizándote construida sobre datos privados reales escrita en tu muro? ¿qué pasaría si alguien, haciéndose
+                pasar por ti, insulta a tus amistades?. Es momento, por lo tanto, de cerrar las puertas de tu vida online a personas que no son de plena confianza. Para ello:
+                <ul>
+                  <li><span class="item-of-list">Evita intrusos.</span> Para ello debes realizar, en orden, estos pasos:
+                    <ul>
+                      <li><span class="item-of-list">Realiza un chequeo a fondo de tu equipo</span> para asegurarte de que no tienes software malicioso (troyanos, spyware…) que puede dar ventajas a quien te acosa. Es importante. Cambia las claves de
+                        acceso a los servicios online que
+                        usas, pero
+                        nunca antes de haber realizado el paso anterior. Recuerda que deben ser complejas de adivinar y llevar combinados números y letras.</li>
+                      <li><span class="item-of-list">Depura la lista de contactos.</span>Revisa y reduce la lista de contactos que tienes agregados en las redes sociales (o en otros entornos sociales online).</li>
+                      <li>Reconfigura las opciones de privacidad de las redes sociales o similares en las que participes y hazlas más estrictas. Asegúrate de que sabes bien cómo funcionan estas opciones y sus implicaciones.</li>
+                      <li><span class="item-of-list">Comprueba qué cuentan de ti online.</span> Busca la información sobre ti publicada otras personas y trata de eliminarla si crees que puede ser utilizada para hacerte daño.</li>
+                      <li><span class="item-of-list">Repasa la información que publicas y quién puede acceder a ella</span> y poner, a su vez, al alcance de terceras personas.</li>
+                      <li><span class="item-of-list">Comunica a tus contactos que no deseas que hagan circular informaciones o fotografías tuyas</span> en entornos colectivos.</li>
+                      <li><span class="item-of-list">Guarda las pruebas del acoso durante todo el tiempo</span>, sea cual fuere la forma en que éste se manifieste, porque pueden serte de gran ayuda. Trata también de conocer o asegurar la identidad de
+                        los autores pero, en todo caso,
+                        sin lesionar
+                        los derechos de ninguna persona.</li>
+                      <li><span class="item-of-list">Comunica a quienes te acosan que lo que están haciendo te molesta</span> y pídeles, sin agresividad ni amenazas, que dejen de hacerlo. Recuerda que no debes presuponer hechos o personas en tu
+                        comunicación, por lo que debes medir
+                        muy bien cómo lo
+                        haces, sin señalar a nadie en público, pero a la vez tratando de asegurarte de que se entera la persona o personas implicadas.</li>
+                      <li>Trata de hacerles saber que lo que están haciendo es <span class="item-of-list">perseguible por la Ley</span> en el caso de que el acoso persista. Les puedes sugerir que visiten webs como e-legales.net o
+                        www.ciberbullying.net para que lo comprueben por sí
+                        mismos.</li>
+                      <li><span class="item-of-list">Deja constancia de que estás en disposición de presentar una denuncia</span>, si a pesar del paso anterior continúa el acecho. Manifiesta que cuentas con pruebas suficientes recopiladas desde el
+                        inicio y que sabes cómo y dónde
+                        presentarlas.
+                        Debes indicar que, si el acecho persiste, te verás obligado a acudir a la policía.
+                        Toma medidas legales si la situación de acoso, llegado este punto, no ha cesado.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </artcile>
+    </section>
+
+    <section id="noticias">
+      <div id="cajamenu3">
+        <img class="icon" src="img/noticia.png">
+        <h1 id="noticias1">Noticias Relacionadas</h1>
+        <p class="subh">Éstas son algunas de las últimas noticias relacionadas con el ciberacoso. Tristemente este tipo de sucesos son reales, debemos concienciar a la sociedad que el ciberbullying resulta tan doloroso y desgarrador como el acoso
+          escolar o
+          el mobbing.</p>
+      </div>
+      <div id="datos" class="container"></div>
+    </section>
+  </main>
+
+  <footer id="footer1">
+    <div id="cajamenu4">
+      <h3>Proyecto de diseño web de alumnos y alumnas del SJO y la EASDIB</h3>
+      <div id="logos2">
+        <article id="sjo">
+          <img src="img/logoSJO.png" width=60px>
+        </article>
+        <article id="easdib">
+          <img src="img/Easdib_logo_color.png" height=60px>
+        </article>
+      </div>
+      <p class="gris">Este proyecto constituye un trabajo de clase entre los estudiantes de diseño gráfico de la Escola d'Art i Superior de les Illes Balears y los estudiantes del FP Superior de Informática de Sant Josep Obrer.<br>
+        La finalidad de este trabajo consiste en crear una web que vaya destinada a una causa social mediante la cual se trabaje en equipo con metodologías hábiles.
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
