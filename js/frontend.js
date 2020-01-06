@@ -5,6 +5,7 @@ var currentPath = '';
 var fileUri = '';
 var currentPath = [];
 var showOculto = false;
+var comments = [];
 // Initialize the App Client
 const client = stitch.Stitch.initializeDefaultAppClient("app02-ronef");
 // Get a MongoDB Service Client
@@ -14,6 +15,79 @@ const mongodb = client.getServiceClient(
 );
 // Get a reference to the blog database
 const db = mongodb.db("database02");
+function getComments(){
+  db.collection("foro")
+    .find({}, {
+      limit: 1000
+    })
+    .toArray()
+    .then(docs => {
+      console.log(docs);
+      displayComments();
+    });
+
+}
+
+function displayComments(){
+  var commentArea = document.getElementById("comment-area");
+  commentArea.innerHTML = `<div class="container comments">`;
+  comments.forEach(element=>{
+    commentArea.innerHTML += `
+      <h2>${element.titulo}</h2>
+      <div class="inline date-box">
+        <p class="inline">Fecha de publicación: ${element.fecha}</p>
+      </div>
+      <div class="inline likes-box">
+        <div class="inline likes-buttons">
+          <div class="inline like-counters">
+            <button type="button" name="button"><i class="far fa-thumbs-up"></i> ${element.likes}</button>
+          </div>
+          <div class="inline dislike-counters">
+            <button type="button" name="button"><i class="far fa-thumbs-down"></i> ${element.dislikes}</button>
+          </div>
+        </div>
+      </div>
+      <div class="block user-info">
+        <i class="fas fa-user fa-3x"></i>
+        <p class="rosa inline"><b>${element.autor}</b></p>
+        <p class="comment-box">${element.comentario}</p>
+      </div>
+      <hr>
+    `;
+    if(element.respuestas.length > 0){
+      commentArea.innerHTML += `
+      <div class="responses">
+        <div class="block user-info response">
+          <i class="fas fa-user fa-3x"></i>
+          <input type="text" class="add-username" placeholder="Usuario">
+          <input type="text" class="add-comment" placeholder="Añade un comentario público...">
+        </div>
+      `;
+      element.respuestas.forEach(response =>{
+        commentArea.innerHTML += `
+        <div class="block user-info response">
+
+          <i class="fas fa-user fa-3x"></i>
+          <p class="rosa inline"><b>${response.autor}</b></p>
+          <p class="comment-box">${response.comentario}</p>
+          <button class="flat rosa" type="button" name="button">RESPONDER</button>
+          <div class="inline likes-buttons">
+            <div class="inline like-counters">
+              <button type="button" name="button"><i class="far fa-thumbs-up"></i> ${response.likes}</button>
+            </div>
+            <div class="inline dislike-counters">
+              <button type="button" name="button"><i class="far fa-thumbs-down"></i> ${response.dislikes}</button>
+            </div>
+          </div>
+          <hr>
+        </div>
+        `;
+      })
+      commentArea.innerHTML += `</div>`
+    }
+    commentArea.innerHTML += `</div>`;
+  })
+}
 function displayMains() {
   db.collection("collection01")
     .find({}, {

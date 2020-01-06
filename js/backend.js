@@ -87,7 +87,7 @@ function createFileFromStream(checkMD5) {
           image: file.name
         })
         .then(displayMains);
-      document.getElementById('add-new').style.display='block';
+      document.getElementById('add-new').style.display = 'block';
       newMainTitle.value = "";
       newMainSubtitle.value = "";
       newMainDescription.value = "";
@@ -173,7 +173,10 @@ function getFileService() {
   console.log(fileService);
   return fileService;
 }
-
+function deleteRes(id, idRes){
+  const objectId = new stitch.BSON.ObjectId(id);
+  const resId = new stitch.BSON.ObjectId(idRes);
+}
 function displayProcess(process) {
   document.getElementById('progress').style.width = process + '%';
   document.getElementById('progress').innerHTML = process + '%';
@@ -203,11 +206,12 @@ function displayMains() {
     });
 
 }
-function togglModal(val){
+
+function togglModal(val) {
   if (val == "mostrar") {
-    document.getElementById('add-new').style.display='block';
+    document.getElementById('add-new').style.display = 'block';
   } else if (val == "ocultar") {
-    document.getElementById('add-new').style.display='none';
+    document.getElementById('add-new').style.display = 'none';
   }
 
 }
@@ -219,6 +223,106 @@ function displayMainsOnLoad() {
     .catch(console.error);
 }
 
+function displayForum() {
+  db.collection("foro")
+    .find({}, {
+      limit: 1000
+    })
+    .toArray()
+    .then(docs => {
+      docs.forEach(doc => {
+        var btn = doc.fijado == false ? `<button type="button" class="btn btn-primary" onclick="fixComment('${doc._id}')"><i class="fas fa-thumbtack"></i></button>` :
+          `<button type="button" class="btn btn-danger" onclick="unfixComment('${doc._id}')"><i class="fas fa-thumbtack"></i></button>`
+        document.getElementById("tbody").innerHTML += `<tr>
+            <td>${doc.autor}</td>
+            <td>${doc.titulo}</td>
+            <td>${doc.comentario}</td>
+            <td>
+              <button type="button" class="btn btn-danger" onclick="deleteForum('${doc._id}')"><i class="fas fa-trash-alt"></i></button>
+            </td>
+            <td>
+              ${btn}
+            </td>
+          </tr>
+          `;
+        doc.respuestas.forEach((respuesta, index) => {
+          document.getElementById("tbody").innerHTML += `<tr class="table-primary">
+              <td>${respuesta.autor}</td>
+              <td>RESPUESTA</td>
+              <td>${respuesta.comentario}</td>
+              <td>
+                <button type="button" class="btn btn-danger" onclick="deleteResForum('${doc._id}', '${respuesta._id}')"><i class="fas fa-trash-alt"></i></button>
+              </td>
+              <td>
+              </td>
+            </tr>
+            `;
+        })
+      })
+    });
+}
+
+function fixComment(id) {
+  const objectId = new stitch.BSON.ObjectId(id);
+  db.collection("foro")
+    .updateOne({
+      "_id": objectId
+    }, {
+      "$set": {
+        "fijado": true
+      }
+    }).then(()=>{
+      document.getElementById("tbody").innerHTML = '';
+      displayForum();
+    })
+}
+
+function unfixComment(id) {
+  const objectId = new stitch.BSON.ObjectId(id);
+  db.collection("foro")
+    .updateOne({
+      "_id": objectId
+    }, {
+      "$set": {
+        "fijado": false
+      }
+    }).then(()=>{
+      document.getElementById("tbody").innerHTML = '';
+      displayForum();
+    })
+}
+
+function deleteResForum(id, idRes) {
+  const objectId = new stitch.BSON.ObjectId(id);
+  const resId = new stitch.BSON.ObjectId(idRes);
+  db.collection("foro")
+    .updateOne({
+      "_id": objectId,
+      "respuestas._id": resId
+    }, {
+      "$set": {
+        "respuestas.$.comentario": "<span class='cursiva'>Comentario eliminado por un administrador</span>"
+      }
+    }).then(()=>{
+      document.getElementById("tbody").innerHTML = '';
+      displayForum();
+    })
+}
+
+function deleteForum(id) {
+  //const deleteMain = document.getElementById("delete_main");
+  const objectId = new stitch.BSON.ObjectId(id);
+  db.collection("foro")
+    .deleteOne({
+      _id: objectId
+    })
+    .then(()=>{
+      document.getElementById("tbody").innerHTML = '';
+      displayForum();
+    })
+  //alert(id);
+}
+
 function deleteOne(id) {
   //const deleteMain = document.getElementById("delete_main");
   const objectId = new stitch.BSON.ObjectId(id);
@@ -228,6 +332,13 @@ function deleteOne(id) {
     })
     .then(displayMains)
   //alert(id);
+}
+
+  function displayForumOnLoad() {
+  client.auth
+    .loginWithCredential(new stitch.AnonymousCredential())
+    .then(displayForum)
+    .catch(console.error);
 }
 
 function addMain() {
@@ -245,12 +356,12 @@ function addMain() {
       description: newMainDescription.value
     })
     .then(displayMains);
-  document.getElementById('add-new').style.display='block';
+  document.getElementById('add-new').style.display = 'block';
   newMainTitle.value = "";
   newMainSubtitle.value = "";
   newMainDescription.value = "";
 }
 
 //ejecuciones
-displayMainsOnLoad();
+
 console.log(entradas);

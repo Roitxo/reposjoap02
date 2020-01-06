@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4/stitch.js"></script>
+  <script src="js/azure.js" charset="utf-8"></script>
+  <script src="js/foro.js"></script>
+  <title>ForoBullying</title>
+</head>
+
+<body onload="getComments()">
+  <div id="arrow">
+    <a class="naranja" href="#top"><i class="fa-3x fas fa-arrow-up"></i></a>
+  </div>
+  <header id="navbar">
+    <h1 id="logo">Ciber<span class="naranja">Bullying</span></h1>
+    <nav id="desktop-nav">
+      <a class="nav-link" href="#quienes somos">¿QUIÉNES SOMOS?</a>
+      <a class="nav-link" href="#ciberbullying">CIBERBULLYING</a>
+      <a class="nav-link" href="#noticias">NOTICIAS</a>
+      <a class="nav-link" href="#">FORO</a>
+    </nav>
+    <div class="offcanvas">
+      <button class="btn-naranja" onclick="showOffCanvas()" type="button" name="button"><i class="fas fa-bars fa-2x"></i></button>
+    </div>
+  </header>
+  <nav id="mobile-nav">
+    <h1 id="logo">Ciber<span class="naranja">Bullying</span></h1>
+    <a class="nav-link" href="#quienes somos">¿QUIÉNES SOMOS?</a>
+    <a class="nav-link" href="#ciberbullying">CIBERBULLYING</a>
+    <a class="nav-link" href="#noticias">NOTICIAS</a>
+    <a class="nav-link" href="#">FORO</a>
+    <button onclick="hideOffCanvas()" class="btn-naranja" type="button" name="button"><i class="fas fa-times fa-3x"></i></button>
+  </nav>
+  <div id="banner">
+    <h1>Foro<span class="rosa">Bullying</span></h1>
+    <h2>Foro sobre ciberacoso</h2>
+    <h3>Se borrará cualquier comentario que inflinja las normas de la comunidad. Puedes leerlas aquí abajo:</h3>
+  </div>
+  <main class="container comments">
+    <div id="fixed-comments"></div>
+    <div id="comment-area"></div>
+  </main>
+
+  <footer id="footer1">
+    <div id="cajamenu4">
+      <h3>Proyecto de diseño web de alumnos y alumnas del SJO y la EASDIB</h3>
+      <div id="logos2">
+        <article id="sjo">
+          <img src="img/logoSJO.png" width=60px>
+        </article>
+        <article id="easdib">
+          <img src="img/Easdib_logo_color.png" height=60px>
+        </article>
+      </div>
+      <p class="gris">Este proyecto constituye un trabajo de clase entre los estudiantes de diseño gráfico de la Escola d'Art i Superior de les Illes Balears y los estudiantes del FP Superior de Informática de Sant Josep Obrer.<br>
+        La finalidad de este trabajo consiste en crear una web que vaya destinada a una causa social mediante la cual se trabaje en equipo con metodologías hábiles.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
