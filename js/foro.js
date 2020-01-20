@@ -18,7 +18,12 @@ const mongodb = client.getServiceClient(
 );
 // Get a reference to the forum database
 const db = mongodb.db("database02");
-
+function showOffCanvas(){
+  document.getElementById("mobile-nav").style.display="block";
+}
+function hideOffCanvas(){
+  document.getElementById("mobile-nav").style.display="none";
+}
 function displayComments() {
   var commentArea = document.getElementById("comment-area");
   commentArea.innerHTML = " ";
@@ -237,7 +242,7 @@ function newResponse(id, context, user = null) {
 function displayFixed() {
   var commentArea = document.getElementById("fixed-comments");
   commentArea.innerHTML = `<div class="container comments">
-  <div class="block user-info response input-response">
+  <div id="newcomment" class="block user-info response">
     <i class="fas fa-user fa-3x"></i>
     <input id="username_newcomment" type="text" class="add-username" placeholder="Usuario">
     <input id="title_newcomment" type="text" class="add-comment" placeholder="Titulo de tu publicación...">

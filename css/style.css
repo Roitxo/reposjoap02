@@ -115,6 +115,15 @@ html {
   #desktop-nav{
     display: none;
   }
+  #banner h1{
+    font-size: 60px !important;
+  }
+  #newcomment{
+    margin: 2px;
+  }
+  #newcomment input{
+    width: 100%;
+  }
   .offcanvas{
       display: inline;
   }
@@ -315,7 +324,7 @@ p {
   height: 500px;
 }
 #banner h1{
-  font-size: 75px;
+  font-size: 70px;
 }
 #banner h2{
   font-size: 30px;
