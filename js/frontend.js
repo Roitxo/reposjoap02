@@ -109,7 +109,7 @@ function displayMains() {
         const html = docs.map(doc => `
           <article class="news">
             <div class="column-new-img">
-                ${!doc.image ? ` ` : '<img class="img-new" width="100px" src="https://stsjo22.file.core.windows.net/' + fileShare + '/' + doc.image + sas + '" />'}
+                ${!doc.image ? ` ` : '<a href=' + doc.reference + ' target="_blank"><img class="img-new" width="100px" src="https://stsjo22.file.core.windows.net/' + fileShare + '/' + doc.image + sas + '" /></a>'}
             </div>
             <div class="column-new-text">
               <h1 style="margin:0;padding:0">${doc.title}</h1>
