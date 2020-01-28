@@ -1,5 +1,5 @@
-var account = 'stsjo17';
-var sas = '?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-06-06T21:52:40Z&st=2019-11-19T14:52:40Z&spr=https&sig=Udb%2B589zvrDzocXpSQC5jA8cxhcDoOEdW2XEIiuA1JU%3D';
+var account = 'stsjo22';
+var sas = '?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-12-05T20:14:15Z&st=2020-01-28T12:14:15Z&spr=https&sig=Bm2rYak7F8ehEgEHnZK1BdoWl0IcFdJXAhwBbemM0p8%3D';
 var fileShare = 'images';
 var currentPath = '';
 var fileUri = '';
@@ -109,7 +109,7 @@ function displayMains() {
         const html = docs.map(doc => `
           <article class="news">
             <div class="column-new-img">
-                ${!doc.image ? ` ` : '<img class="img-new" width="100px" src="https://stsjo17.file.core.windows.net/' + fileShare + '/' + doc.image + sas + '" />'}
+                ${!doc.image ? ` ` : '<img class="img-new" width="100px" src="https://stsjo22.file.core.windows.net/' + fileShare + '/' + doc.image + sas + '" />'}
             </div>
             <div class="column-new-text">
               <h1 style="margin:0;padding:0">${doc.title}</h1>
