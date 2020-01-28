@@ -156,7 +156,7 @@ function refreshDirectoryFileList(directory) {
           '<td>', 'FILE', '</td>',
           '<td>', file.name, '</td>',
           '<td>', file.contentLength, '</td>',
-          '<td>', '<img width="200px" src="https://easdibsjost.file.core.windows.net/' + fileShare + '/' + file.name + sas + '" />', '</td>',
+          '<td>', '<img width="200px" src="https://easdibsjost.file.core.windows.net/' + fileShare + '/' + file.name + sas + `&xyz=` + new Date().getTime().toString() + '" />', '</td>',
           '</tr>');
       }
       //document.getElementById('directoryFiles').innerHTML = '<table class="table table-condensed table-bordered">' + outputDirectory.join('') + outputFiles.join('') + '</table>';
